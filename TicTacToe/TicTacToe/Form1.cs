@@ -9,13 +9,17 @@ namespace TicTacToe
         private int playerTurn; // variable to determine player turn
         private bool playerOneWin; // variable to determine if player one wins
         private bool playerTwoWin; // variable to determine if player two wins
+        private bool gameIsDraw; // variable to determine if game is a draw
 
         public Form1()
         {
             InitializeComponent();
+            
+            // Initialize all variables in constructor
             playerTurn = 0;
-            playerOneWin = false; ;
+            playerOneWin = false;
             playerTwoWin = false;
+            gameIsDraw = false;
         }
 
         // Event handler to handle a button click
@@ -30,7 +34,8 @@ namespace TicTacToe
 
         }
 
-        private void CheckWinner()
+
+private void CheckWinner()
         {
             // Check Horizontal buttons and check if button is not enabled
             if ((A1.Text == A2.Text) && (A1.Text == A3.Text) && (!A1.Enabled))
@@ -77,7 +82,11 @@ namespace TicTacToe
                 playerOneWin = C1.Text == "X" ? true : false;
                 playerTwoWin = C1.Text == "O" ? true : false;
             }
-
+            else if (A1.Text != "" && A2.Text != "" && A3.Text != "" && B1.Text != "" && B2.Text != ""
+                                         && B3.Text != "" && C1.Text != "" && C2.Text != "" && C3.Text != "")
+            {
+                gameIsDraw = true;
+            }
 
             // if-else-if statement to display winner message to screen
             if (playerOneWin)
@@ -89,6 +98,11 @@ namespace TicTacToe
             {
                 DisableButtons();
                 MessageBox.Show("Player Two Wins!");
+            }
+            else if (gameIsDraw)
+            {
+                DisableButtons();
+                MessageBox.Show("Game is a draw!");
             }
         }
 
@@ -122,6 +136,7 @@ namespace TicTacToe
 
             playerOneWin = false;
             playerTwoWin = false;
+            gameIsDraw = false;
             playerTurn = 0;
         }
 
