@@ -22,11 +22,11 @@ namespace TicTacToe
             gameIsDraw = false;
         }
 
-        // Event handler to handle a button click
+        // Single event handler to handle all button clicks
         private void btnClick(object sender, EventArgs e)
         {
             Button b = (Button)sender; // Creating a new instance of Button and
-                                        // casting the sender paramater as Button
+                                        // casting the sender parameter as Button
             b.Text = playerTurn % 2 == 0 ? "X" : "O"; // Writes X or O depending on playerTurn variable
             b.Enabled = false; // Disables button that was clicked
             playerTurn++; // Increments playerTurn variable to indicate next turn 
@@ -82,6 +82,8 @@ private void CheckWinner()
                 playerOneWin = C1.Text == "X" ? true : false;
                 playerTwoWin = C1.Text == "O" ? true : false;
             }
+            
+            // Check if all buttons are filled, if so game is a draw
             else if (A1.Text != "" && A2.Text != "" && A3.Text != "" && B1.Text != "" && B2.Text != ""
                                          && B3.Text != "" && C1.Text != "" && C2.Text != "" && C3.Text != "")
             {
@@ -91,7 +93,7 @@ private void CheckWinner()
             // if-else-if statement to display winner message to screen
             if (playerOneWin)
             {
-                DisableButtons();
+                DisableButtons(); // Disables all buttons to prevent further play
                 MessageBox.Show("Player One Wins!");
             }
             else if (playerTwoWin)
@@ -113,7 +115,7 @@ private void CheckWinner()
             {
                 try
                 {
-                    Button b = (Button)c; // Cast control as new object instance of Button
+                    Button b = (Button)c; // Cast control as Button object
                     b.Enabled = false; // Enables all buttons
                 }
                 catch { } // Catches and handles invalid cast exception
@@ -127,13 +129,14 @@ private void CheckWinner()
             {
                 try
                 {
-                    Button b = (Button)c; // Cast control as new object instance of Button
-                    b.Enabled = true; // Enables all buttons
-                    b.Text = ""; // Clears button text of X and O
+                    Button b = (Button)c; // Cast control as Button object
+                    b.Enabled = true; // Enables all buttons for new game
+                    b.Text = ""; // Clears button text for new game
                 }
                 catch { } // Catches and handles invalid cast exception
             }
 
+            // Resets all fields appropriate for new game
             playerOneWin = false;
             playerTwoWin = false;
             gameIsDraw = false;
