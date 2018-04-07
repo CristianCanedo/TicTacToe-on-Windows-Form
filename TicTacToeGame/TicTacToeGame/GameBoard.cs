@@ -59,7 +59,7 @@ namespace TicTacToeGame
                 playerTwoWin = A3.Text == "O" ? true : false;
             }
             else if (A1.Text != "" && A2.Text != "" && A3.Text != "" && B1.Text != "" && B2.Text != ""
-                                            && B3.Text != "" && C1.Text != "" && C2.Text != "" && C3.Text != "")
+                                   && B3.Text != "" && C1.Text != "" && C2.Text != "" && C3.Text != "")
             {
                 gameIsDraw = true;
             }
@@ -83,7 +83,7 @@ namespace TicTacToeGame
                 playerTwoWin = C1.Text == "O" ? true : false;
             }
             else if (A1.Text != "" && A2.Text != "" && A3.Text != "" && B1.Text != "" && B2.Text != ""
-                                            && B3.Text != "" && C1.Text != "" && C2.Text != "" && C3.Text != "")
+                                   && B3.Text != "" && C1.Text != "" && C2.Text != "" && C3.Text != "")
             {
                 gameIsDraw = true;
             }
@@ -107,7 +107,7 @@ namespace TicTacToeGame
                 playerTwoWin = A3.Text == "O" ? true : false;
             }
             else if (A1.Text != "" && A2.Text != "" && A3.Text != "" && B1.Text != "" && B2.Text != ""
-                                            && B3.Text != "" && C1.Text != "" && C2.Text != "" && C3.Text != "")
+                                   && B3.Text != "" && C1.Text != "" && C2.Text != "" && C3.Text != "")
             {
                 gameIsDraw = true;
             }
